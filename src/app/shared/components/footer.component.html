@@ -1,0 +1,36 @@
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
+      <div class="eyebrow">The Mayon</div>
+      <h2 class="site-footer__title">Trusted AI-powered software development for ambitious teams.</h2>
+      <p>
+        We help organizations modernize operations, launch products, and use AI in practical ways that improve growth and efficiency.
+      </p>
+    </div>
+
+    <nav class="site-footer__links" aria-label="Footer navigation">
+      @for (link of links; track link.path) {
+        <a [routerLink]="link.path">{{ link.label }}</a>
+      }
+    </nav>
+
+    <div class="site-footer__contact">
+      <h3>Contact</h3>
+      <ul class="list">
+        @for (item of contact; track item.label) {
+          <li>
+            <span>{{ item.label }}</span>
+            <a [href]="item.href" [attr.target]="item.external ? '_blank' : null" [attr.rel]="item.external ? 'noreferrer' : null">
+              {{ item.value }}
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="container site-footer__bar">
+    <p>Copyright 2026 The Mayon. All rights reserved.</p>
+    <p>Built for premium SaaS, enterprise delivery, and AI-first growth.</p>
+  </div>
+</footer>

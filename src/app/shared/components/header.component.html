@@ -1,0 +1,49 @@
+<header class="site-header">
+  <div class="site-header__bar container">
+    <a class="brand" routerLink="/" aria-label="The Mayon home">
+      <span class="brand__mark">M</span>
+      <span class="brand__text">
+        <strong>The Mayon</strong>
+        <small>Making AI Practical</small>
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      @for (link of links; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+
+    <div class="site-header__actions">
+      <a class="button button--small button--secondary desktop-cta" routerLink="/contact">Schedule Consultation</a>
+
+      <button
+        class="icon-button mobile-menu-button"
+        type="button"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-navigation"
+        aria-label="Toggle menu"
+        (click)="toggleMenu()"
+      >
+        <span aria-hidden="true">{{ menuOpen() ? 'Close' : 'Menu' }}</span>
+      </button>
+    </div>
+  </div>
+
+  @if (menuOpen()) {
+    <div class="mobile-nav container" id="mobile-navigation">
+      @for (link of links; track link.path) {
+        <a [routerLink]="link.path" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: link.path === '/' }" (click)="closeMenu()">
+          {{ link.label }}
+        </a>
+      }
+      <a class="button button--small" routerLink="/contact" (click)="closeMenu()">Schedule Consultation</a>
+    </div>
+  }
+</header>

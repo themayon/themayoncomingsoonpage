@@ -1,0 +1,253 @@
+.hero {
+  padding-top: 1.5rem;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero__title {
+  margin-top: 1rem;
+  font-size: clamp(2.8rem, 5vw, 5.4rem);
+  line-height: 0.96;
+  max-width: 12ch;
+}
+
+.hero__lede {
+  max-width: 58ch;
+  margin-top: 1.25rem;
+  font-size: 1.08rem;
+}
+
+.hero__actions {
+  margin-top: 1.5rem;
+}
+
+.hero__metrics {
+  margin-top: 1.75rem;
+}
+
+.metric {
+  padding: 1rem;
+}
+
+.metric__value {
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: var(--text);
+  letter-spacing: -0.04em;
+}
+
+.hero__visual {
+  padding: 1.4rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.hero__visual-top {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-card {
+  padding: 1.25rem;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.66));
+  border: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+html[data-theme='light'] .dashboard-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.74));
+}
+
+.dashboard-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.dashboard-card__eyebrow {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.dashboard-card__header h2 {
+  font-size: 1.45rem;
+  line-height: 1.15;
+  margin-top: 0.35rem;
+}
+
+.dashboard-card__score {
+  display: grid;
+  place-items: center;
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 999px;
+  background: rgba(52, 216, 198, 0.15);
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.dashboard-card__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.mini-stat {
+  padding: 0.95rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.mini-stat span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.mini-stat strong {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 1.5rem;
+}
+
+.mini-stat small {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--muted);
+}
+
+.dashboard-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+.pulse-dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 999px;
+  background: var(--success);
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.45);
+  animation: pulse 1.8s infinite;
+}
+
+.hero__side-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.banner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.6rem;
+}
+
+.banner__text {
+  max-width: 46ch;
+}
+
+.intro-card,
+.service-card,
+.product-card,
+.industry-card,
+.reason-card,
+.stack-card,
+.quote-card,
+.metric-card {
+  min-height: 100%;
+}
+
+.product-card__actions {
+  margin-top: 1rem;
+}
+
+.industry-card ul {
+  margin-top: 0.85rem;
+}
+
+.metric-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.quote-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.quote-card__quote {
+  font-size: 1.02rem;
+  color: var(--text);
+}
+
+.quote-card__author {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.quote-card__author span {
+  color: var(--muted);
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.75rem;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .hero__grid,
+  .banner,
+  .cta {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .hero__title {
+    max-width: 14ch;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__side-grid,
+  .dashboard-card__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__title {
+    font-size: clamp(2.4rem, 10vw, 4rem);
+  }
+}
+

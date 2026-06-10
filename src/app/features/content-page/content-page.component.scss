@@ -1,0 +1,111 @@
+.content-hero__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.content-hero__title {
+  margin-top: 1rem;
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  max-width: 14ch;
+}
+
+.content-hero__intro {
+  max-width: 62ch;
+  margin-top: 0.75rem;
+  color: var(--text);
+}
+
+.content-hero__panel {
+  padding: 1.5rem;
+  min-height: 100%;
+}
+
+.content-hero__panel-top {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.content-hero__callout {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.35rem;
+}
+
+.content-hero__callout h2 {
+  font-size: 1.7rem;
+  line-height: 1.12;
+}
+
+.section-card {
+  min-height: 100%;
+}
+
+.contact-card {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.contact-card__label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.25rem;
+}
+
+.contact-layout__aside {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form label {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.form span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: color-mix(in srgb, var(--muted) 76%, transparent);
+}
+
+.map-card {
+  display: grid;
+  gap: 0.6rem;
+}
+
+@media (max-width: 960px) {
+  .content-hero__grid,
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+}
+

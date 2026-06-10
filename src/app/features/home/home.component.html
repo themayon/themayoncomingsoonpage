@@ -1,0 +1,325 @@
+<section class="hero page-section">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <div class="eyebrow">AI-powered software development company</div>
+      <h1 class="hero__title">Transforming Businesses Through AI-Powered Software Innovation</h1>
+      <p class="hero__lede">
+        We build intelligent software solutions that automate operations, improve decisions, and accelerate growth.
+      </p>
+      <div class="button-row hero__actions">
+        <a class="button" routerLink="/contact">Schedule Consultation</a>
+        <a class="button button--secondary" routerLink="/services">Explore Solutions</a>
+      </div>
+
+      <div class="hero__metrics grid grid--2">
+        @for (metric of metrics; track metric.label) {
+          <div class="metric card card--soft">
+            <div class="metric__value">{{ metric.value }}</div>
+            <p>{{ metric.label }}</p>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="hero__visual panel">
+      <div class="hero__visual-top">
+        <span class="badge badge--success">AI-first operating model</span>
+        <span class="badge badge--accent">Enterprise ready</span>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="dashboard-card__header">
+          <div>
+            <p class="dashboard-card__eyebrow">The Mayon Platform</p>
+            <h2>Live insights, automation, and product delivery</h2>
+          </div>
+          <div class="dashboard-card__score">94</div>
+        </div>
+
+        <div class="dashboard-card__grid">
+          <div class="mini-stat">
+            <span>Automation</span>
+            <strong>78%</strong>
+            <small>of routine tasks can be optimized</small>
+          </div>
+          <div class="mini-stat">
+            <span>Velocity</span>
+            <strong>3.4x</strong>
+            <small>faster insight-to-action cycles</small>
+          </div>
+          <div class="mini-stat">
+            <span>Visibility</span>
+            <strong>Live</strong>
+            <small>reports across critical operations</small>
+          </div>
+        </div>
+
+        <div class="dashboard-card__footer">
+          <div class="pulse-dot"></div>
+          <p>Powering healthcare, operations, and growth systems with AI.</p>
+        </div>
+      </div>
+
+      <div class="hero__side-grid">
+        <div class="card card--soft">
+          <div class="card__meta">
+            <span class="badge badge--success">Live Product</span>
+          </div>
+          <h3 class="card__title">AI HMS</h3>
+          <p>Production-ready hospital management software with a live demo.</p>
+        </div>
+        <div class="card card--soft">
+          <div class="card__meta">
+            <span class="badge badge--warning">Roadmap</span>
+          </div>
+          <h3 class="card__title">AI CRM, HRM, ERP</h3>
+          <p>Future-ready product family designed for scalable expansion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="banner panel">
+      <div>
+        <div class="eyebrow">AI Transformation Banner</div>
+        <h2 class="section-title">AI is not a feature layer. It is the operating model.</h2>
+      </div>
+      <p class="banner__text">
+        The Mayon helps organizations move from disconnected tools and manual workflows to intelligent software that drives speed, clarity, and better outcomes.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Company introduction</div>
+      <h2 class="section-title">A premium AI software partner for enterprises and ambitious growth teams.</h2>
+      <p class="section-copy">
+        We blend product thinking, enterprise engineering, and AI strategy to create software that feels premium to use and dependable to run.
+      </p>
+    </div>
+
+    <div class="grid grid--3">
+      <article class="card card--soft intro-card">
+        <h3 class="card__title">Business outcomes first</h3>
+        <p>We design software around operational efficiency, measurable ROI, and user adoption.</p>
+      </article>
+      <article class="card card--soft intro-card">
+        <h3 class="card__title">Scalable architecture</h3>
+        <p>Our delivery approach supports current needs while keeping the path open for future modules and products.</p>
+      </article>
+      <article class="card card--soft intro-card">
+        <h3 class="card__title">AI in every solution</h3>
+        <p>From workflow automation to predictive analytics, AI is embedded where it can create practical value.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Services overview</div>
+      <h2 class="section-title">A complete delivery stack for AI, software, cloud, and automation.</h2>
+      <p class="section-copy">Every service is shaped to be enterprise-friendly, maintainable, and ready for lead-generating growth.</p>
+    </div>
+
+    <div class="grid grid--3">
+      @for (service of services; track service.title) {
+        <article class="card service-card">
+          <h3 class="card__title">{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+          <ul class="list list--checks">
+            @for (bullet of service.bullets; track bullet) {
+              <li>{{ bullet }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Featured products</div>
+      <h2 class="section-title">Product thinking that starts with a live, production-ready platform.</h2>
+    </div>
+
+    <div class="grid grid--2">
+      @for (product of products; track product.title) {
+        <article class="card product-card">
+          <div class="card__meta">
+            @if (product.badge) {
+              <span class="badge" [ngClass]="{
+                'badge--success': product.badgeTone === 'success',
+                'badge--warning': product.badgeTone === 'warning',
+                'badge--accent': product.badgeTone === 'accent'
+              }">{{ product.badge }}</span>
+            }
+            @if (product.external) {
+              <span class="badge badge--accent">External demo</span>
+            }
+          </div>
+          <h3 class="card__title">{{ product.title }}</h3>
+          <p>{{ product.description }}</p>
+          <ul class="list list--checks">
+            @for (bullet of product.bullets; track bullet) {
+              <li>{{ bullet }}</li>
+            }
+          </ul>
+
+          <div class="button-row product-card__actions">
+            @if (product.href) {
+              @if (product.external) {
+                <a class="button button--small" [href]="product.href" target="_blank" rel="noreferrer">View Live Demo</a>
+              } @else {
+                <a class="button button--small" [routerLink]="product.href">View Details</a>
+              }
+            }
+            <a class="button button--small button--secondary" routerLink="/contact">Book Demo</a>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Industries served</div>
+      <h2 class="section-title">Domain-aware software for the sectors where efficiency matters most.</h2>
+    </div>
+
+    <div class="grid grid--4">
+      @for (industry of industries; track industry.title) {
+        <article class="card industry-card">
+          <h3 class="card__title">{{ industry.title }}</h3>
+          <p>{{ industry.description }}</p>
+          <ul class="list">
+            @for (bullet of industry.bullets; track bullet) {
+              <li>{{ bullet }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Why choose The Mayon</div>
+      <h2 class="section-title">A delivery partner that looks like a premium product company.</h2>
+    </div>
+
+    <div class="grid grid--2">
+      @for (reason of reasons; track reason.title) {
+        <article class="card reason-card">
+          <h3 class="card__title">{{ reason.title }}</h3>
+          <p>{{ reason.description }}</p>
+          <ul class="list list--checks">
+            @for (bullet of reason.bullets; track bullet) {
+              <li>{{ bullet }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Technology stack</div>
+      <h2 class="section-title">Angular, .NET, cloud, and AI patterns that support long-term scale.</h2>
+    </div>
+
+    <div class="grid grid--3">
+      @for (stackItem of stack; track stackItem.title) {
+        <article class="card stack-card">
+          <h3 class="card__title">{{ stackItem.title }}</h3>
+          <p>{{ stackItem.description }}</p>
+          <ul class="list list--checks">
+            @for (bullet of stackItem.bullets; track bullet) {
+              <li>{{ bullet }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Success metrics</div>
+      <h2 class="section-title">The kind of outcomes we want to make visible from day one.</h2>
+    </div>
+
+    <div class="grid grid--4">
+      <div class="card metric-card">
+        <h3>Less manual work</h3>
+        <p>Automation replaces repetitive tasks and removes bottlenecks across operations.</p>
+      </div>
+      <div class="card metric-card">
+        <h3>Better decision speed</h3>
+        <p>Dashboards, analytics, and AI surfaces turn raw activity into clear action.</p>
+      </div>
+      <div class="card metric-card">
+        <h3>Stronger customer experiences</h3>
+        <p>Modern interfaces and reliable flows improve trust and adoption.</p>
+      </div>
+      <div class="card metric-card">
+        <h3>Future-ready systems</h3>
+        <p>Architecture is built to support new products and expanding capability.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Testimonials</div>
+      <h2 class="section-title">A delivery style that feels calm, clear, and trustworthy.</h2>
+    </div>
+
+    <div class="grid grid--3">
+      @for (quote of quotes; track quote.author) {
+        <article class="card quote-card">
+          <p class="quote-card__quote">"{{ quote.quote }}"</p>
+          <div class="quote-card__author">
+            <strong>{{ quote.author }}</strong>
+            <span>{{ quote.role }} | {{ quote.company }}</span>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="cta panel">
+      <div>
+        <div class="eyebrow">Contact CTA</div>
+        <h2 class="section-title">Start your digital transformation with a team that understands both AI and enterprise delivery.</h2>
+      </div>
+      <div class="button-row">
+        <a class="button" routerLink="/contact">Start Your Digital Transformation</a>
+        <a class="button button--secondary" routerLink="/products">Request Demo</a>
+      </div>
+    </div>
+  </div>
+</section>

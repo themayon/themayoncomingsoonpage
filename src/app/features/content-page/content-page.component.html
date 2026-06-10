@@ -1,0 +1,139 @@
+<section class="page-section content-hero">
+  <div class="container content-hero__grid">
+    <div class="section-head">
+      <div class="eyebrow">{{ page.eyebrow }}</div>
+      <h1 class="section-title content-hero__title">{{ page.title }}</h1>
+      <p class="section-copy">{{ page.summary }}</p>
+      <p class="content-hero__intro">{{ page.intro }}</p>
+
+      <div class="button-row">
+        @if (page.primaryCta.external) {
+          <a class="button" [href]="page.primaryCta.href" target="_blank" rel="noreferrer">{{ page.primaryCta.label }}</a>
+        } @else {
+          <a class="button" [routerLink]="page.primaryCta.href">{{ page.primaryCta.label }}</a>
+        }
+
+        @if (page.secondaryCta) {
+          @if (page.secondaryCta.external) {
+            <a class="button button--secondary" [href]="page.secondaryCta.href" target="_blank" rel="noreferrer">
+              {{ page.secondaryCta.label }}
+            </a>
+          } @else {
+            <a class="button button--secondary" [routerLink]="page.secondaryCta.href">
+              {{ page.secondaryCta.label }}
+            </a>
+          }
+        }
+      </div>
+    </div>
+
+    <div class="panel content-hero__panel">
+      <div class="content-hero__panel-top">
+        <span class="badge badge--accent">Enterprise quality</span>
+        <span class="badge badge--success">Lead generation focused</span>
+      </div>
+
+      <div class="content-hero__callout">
+        <h2>Designed to feel premium, scalable, and easy to trust.</h2>
+        <p>
+          Every page uses reusable Angular components, strong SEO signals, and a clean information architecture that supports future expansion.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="grid grid--2">
+      @for (section of page.sections; track section.title) {
+        <article class="card section-card">
+          <h3 class="card__title">{{ section.title }}</h3>
+          <p>{{ section.description }}</p>
+          <ul class="list list--checks">
+            @for (item of section.items; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+@if (page.contactPoints?.length) {
+  <section class="page-section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Contact details</div>
+        <h2 class="section-title">Connect with us directly.</h2>
+      </div>
+
+      <div class="grid grid--4">
+        @for (contact of page.contactPoints; track contact.label) {
+          <article class="card contact-card">
+            <p class="contact-card__label">{{ contact.label }}</p>
+            <a [href]="contact.href" [attr.target]="contact.external ? '_blank' : null" [attr.rel]="contact.external ? 'noreferrer' : null">
+              {{ contact.value }}
+            </a>
+            @if (contact.note) {
+              <p>{{ contact.note }}</p>
+            }
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+}
+
+@if (page.slug === 'contact') {
+  <section class="page-section">
+    <div class="container contact-layout">
+      <article class="card">
+        <div class="section-head">
+          <div class="eyebrow">Contact form</div>
+          <h2 class="section-title">Quick inquiry</h2>
+          <p class="section-copy">Tell us what you are building and the outcome you want to achieve.</p>
+        </div>
+
+        <form class="form">
+          <label>
+            <span>Your name</span>
+            <input type="text" placeholder="Full name">
+          </label>
+          <label>
+            <span>Work email</span>
+            <input type="email" placeholder="name@company.com">
+          </label>
+          <label>
+            <span>Company</span>
+            <input type="text" placeholder="Company name">
+          </label>
+          <label>
+            <span>What do you need help with?</span>
+            <textarea rows="5" placeholder="Describe your project, timeline, and goals."></textarea>
+          </label>
+          <button class="button" type="button">Send Inquiry</button>
+        </form>
+      </article>
+
+      <div class="contact-layout__aside">
+        <article class="card map-card">
+          <div class="eyebrow">Google Maps placeholder</div>
+          <h3 class="card__title">Visit or meet virtually</h3>
+          <p>Drop in a map embed or office location content here when the physical office details are finalized.</p>
+        </article>
+
+        <article class="card map-card">
+          <div class="eyebrow">WhatsApp CTA</div>
+          <h3 class="card__title">Talk to an expert now</h3>
+          <p>Use WhatsApp for a faster conversation about scope, timing, or product demos.</p>
+          <a class="button button--secondary" href="https://wa.me/919150166247?text=Hello%20The%20Mayon%2C%20I%20would%20like%20to%20schedule%20a%20consultation." target="_blank" rel="noreferrer">
+            Open WhatsApp
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+}
+
